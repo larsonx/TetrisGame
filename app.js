@@ -6,15 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("board")
     .appendChild(grid);
   }
+  /*Maakt een Array van de 200 div elementen */
 const grid = document.querySelector('.grid')
 let vierkanten = Array.from(document.querySelectorAll('.grid div'))
 const ScoreDisplay = document.getElementById('#score')
 const StartBtn = document.getElementById('#start-button')
 const width = 10;
 
-function showAlert(){
-alert('Phil is mijn neuk slaaf!')
-}
-showAlert()
+
+
+
+
 
 });
