@@ -8,11 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 const grid = document.querySelector('.grid')
 let vierkanten = Array.from(document.querySelectorAll('.grid div'))
-const ScoreDisplay = getElementById('#score')
-const StartBtn = getElementById('#start-button')
+const ScoreDisplay = document.getElementById('#score')
+const StartBtn = document.getElementById('#start-button')
 const width = 10;
 
-
-
+function showAlert(){
+alert('Phil is mijn neuk slaaf!')
+}
+showAlert()
 
 });
