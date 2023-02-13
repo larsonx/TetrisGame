@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Tetromino + Posities//
   const lTetromino = [
-    [1, width+1, width*2+1, 2],
-    [width, width+1, width+2, width*2+2],
-    [1, width+1, width*2+1, width*2],
-    [width, width*2, width*2+1, width*2+2]
-  ]
+    [1, width + 1, width * 2 + 1, 2],
+    [width, width + 1, width + 2, width * 2 + 2],
+    [1, width + 1, width * 2 + 1, width * 2],
+    [width, width * 2, width * 2 + 1, width * 2 + 2],
+  ];
 
   const zTetromino = [
     [0, width, width + 1, width * 2 + 1],
@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   let currentPosition = 4;
-  let currentRotation = 0
+  let currentRotation = 0;
 
   //Selecteert een Tetromino en de standaard positie
-  let random = Math.floor(Math.random()*theTetrominoes.length)
+  let random = Math.floor(Math.random() * theTetrominoes.length);
   let current = theTetrominoes[random][0];
 
   function draw() {
@@ -67,5 +67,49 @@ document.addEventListener("DOMContentLoaded", () => {
       squares[currentPosition + index].classList.add("tetromino");
     });
   }
-  draw();
+  //verwijder Tetromino
+  function undraw() {
+    current.forEach((index) => {
+      squares[currentPosition + index].classList.remove("tetromino");
+    });
+  }
+
+//Tetrominoes laten bewegen
+timerId = setInterval(moveDown, 1000)
+
+
+//move down function
+function moveDown() {
+  undraw()
+  currentPosition += width
+  draw()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
