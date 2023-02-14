@@ -86,7 +86,9 @@ function moveDown() {
   draw()
 }
 function freeze(){
-if(current.some)
+if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))){
+  
+}
 
 }
 
