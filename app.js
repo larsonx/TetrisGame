@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.className = "grid";
     document.getElementById("board").appendChild(grid);
   }
-  
-  
+
   const grid = document.querySelector(".grid");
   let squares = Array.from(document.querySelectorAll(".grid div"));
   const ScoreDisplay = document.querySelector("#score");
@@ -75,47 +74,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-//Tetrominoes snelheid
-timerId = setInterval(moveDown, 1000)
+  //Tetrominoes snelheid
+  timerId = setInterval(moveDown, 1000);
 
-
-//move down function
-function moveDown() {
-  undraw()
-  currentPosition += width
-  draw()
-}
-function freeze(){
-if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))){
-  
-}
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  //move down function
+  function moveDown() {
+    undraw();
+    currentPosition += width;
+    draw();
+  }
+  function freeze() {
+    if (
+      current.some((index) =>
+        squares[currentPosition + index + width].classList.contains("taken")
+      )
+    ) {
+    }
+  }
 });
