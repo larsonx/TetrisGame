@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   /*Creert 200 divs in HTML.*/
-  for (x = 0; x < 200; x++) {
+  for (x = 0; x < 190; x++) {
     let grid = document.createElement("div");
     grid.className = "grid";
     document.getElementById("board").appendChild(grid);
@@ -85,7 +85,10 @@ function moveDown() {
   currentPosition += width
   draw()
 }
+function freeze(){
+if(current.some)
 
+}
 
 
 
