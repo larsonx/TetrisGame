@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.className = "grid";
     document.getElementById("board").appendChild(grid);
   }
-
+  
+  
   const grid = document.querySelector(".grid");
   let squares = Array.from(document.querySelectorAll(".grid div"));
   const ScoreDisplay = document.querySelector("#score");
@@ -74,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-//Tetrominoes laten bewegen
+//Tetrominoes snelheid
 timerId = setInterval(moveDown, 1000)
 
 
