@@ -74,7 +74,7 @@ function control(e){
   if(e.keyCode === 37){
     moveLeft()
   } else if (e.keyCode === 38){
-    //roteer
+    rotate()
   } else if (e.keyCode === 39){
     moveRight()
   } else if (e.keyCode === 40){
@@ -103,25 +103,39 @@ function freeze() {
 }
 
 // move left
-function moveLeft(){
+function moveLeft() {
   undraw()
-  const isAtLeftEdge = current.some(index =>(currentPosition + index) % width === 0)
-
+  const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
   if(!isAtLeftEdge) currentPosition -=1
-
-  if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))){
+  if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
     currentPosition +=1
   }
   draw()
 }
 function moveRight() {
-    undraw()
-    const isAtRightEdge = current.some(index => (currentPosition + index) % width === width -1)
-    if(!isAtRightEdge) currentPosition +=1
-    if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-      currentPosition -=1
-    }
-    draw()
+  undraw()
+  const isAtRightEdge = current.some(index => (currentPosition + index) % width === width -1)
+  if(!isAtRightEdge) currentPosition +=1
+  if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+    currentPosition -=1
   }
-
+  draw()
+}
+  //roteer
+  function rotate(){
+  undraw()
+  currentRotation ++
+  if (currentRotation === current.length){ //Als de huidige rotatie 4 behaald, ga terug naar 0
+    currentRotation = 0
+  }
+current = theTetrominoes[random][currentRotation]
+draw()
+  }
+  function isAtRight() {
+    return current.some(index=> (currentPosition + index + 1) % width === 0)  
+  }
+  
+  function isAtLeft() {
+    return current.some(index=> (currentPosition + index) % width === 0)
+  }
 });
