@@ -55,21 +55,20 @@ document.addEventListener("DOMContentLoaded", () => {
     iTetromino,
   ];
 
-  let currentPosition = 4;
-  let currentRotation = 0;
+  let currentPosition = 4
+  let currentRotation = 0
 
   //Selecteert een Tetromino en de standaard positie
-  let random = Math.floor(Math.random() * theTetrominoes.length);
-  let current = theTetrominoes[random][0];
-
+  let random = Math.floor(Math.random()*theTetrominoes.length)
+let current = theTetrominoes[random][0]
   function draw() {
-    current.forEach((index) => {
+    current.forEach(index => {
       squares[currentPosition + index].classList.add("tetromino");
     });
   }
   //verwijder Tetromino
   function undraw() {
-    current.forEach((index) => {
+    current.forEach(index => {
       squares[currentPosition + index].classList.remove("tetromino");
     });
   }
@@ -82,16 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
     undraw();
     currentPosition += width;
     draw();
+    freeze();
   }
   function freeze() {
-    if (
-      current.some((index) =>
-        squares[currentPosition + index + width].classList.contains("taken")
-      )
-    ) {
-      current.forEach((index) =>
-        squares[currentPosition + index].classList.add("taken")
-      );
+    if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
+      current.forEach(index => squares[currentPosition + index].classList.add('taken'))
+      //start a new tetromino falling
+      random = nextRandom
+      nextRandom = Math.floor(Math.random() * theTetrominoes.length)
+      current = theTetrominoes[random][currentRotation]
+      currentPosition = 4
+      draw()
+      displayShape()
+      addScore()
+      gameOver()
     }
   }
 });
