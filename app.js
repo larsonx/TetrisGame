@@ -58,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(theTetrominoes[0][0])
 
-  //randomly select a Tetromino and its first rotation
+  //Selecteert de Tetromino + standaard positie
   let random = Math.floor(Math.random()*theTetrominoes.length)
   let current = theTetrominoes[random][currentRotation]
 
-  //draw the Tetromino
+  //tekent de tetromino
   function draw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('tetromino')
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  //undraw the Tetromino
+  //verwijdert tetromino
   function undraw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.remove('tetromino')
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  //assign functions to keyCodes
+  //Keycode functies
   function control(e) {
     if(e.keyCode === 37) {
       moveLeft()
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function freeze() {
     if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
       current.forEach(index => squares[currentPosition + index].classList.add('taken'))
-      //start a new tetromino falling
+      //volgend blokje die valt
       random = nextRandom
       nextRandom = Math.floor(Math.random() * theTetrominoes.length)
       current = theTetrominoes[random][currentRotation]
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  //move the tetromino left, unless is at the edge or there is a blockage
+  //beweegt naar links tenzij er een blokkade is
   function moveLeft() {
     undraw()
     const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     draw()
   }
 
-  //move the tetromino right, unless is at the edge or there is a blockage
+  //beweegt naar rechts tenzij er een blockade is
   function moveRight() {
     undraw()
     const isAtRightEdge = current.some(index => (currentPosition + index) % width === width -1)
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   
-  ///FIX ROTATION OF TETROMINOS A THE EDGE 
+  ///Rotatie fix zodat de blokjes niet buiten het veld gaan tijdens het roteren
   function isAtRight() {
     return current.some(index=> (currentPosition + index + 1) % width === 0)  
   }
