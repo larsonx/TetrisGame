@@ -1,27 +1,27 @@
-body{
-background-color: rgb(169, 191, 209);
+body {
+  background-color: rgb(169, 191, 209);
 }
-.container{
-  display:flex;
+.container {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 .grid {
   align-items: center;
   justify-content: center;
+  margin-left: 80px;
   width: 200px;
   height: 400px;
+  margin-top:100px;
   display: flex;
   flex-wrap: wrap;
   background-color: yellow;
   border: 1px solid;
   box-shadow: 5px 5px;
-  
 }
 .grid div {
   height: 20px;
   width: 20px;
-   
 }
 .tetromino {
   background-color: blue;
@@ -29,18 +29,17 @@ background-color: rgb(169, 191, 209);
   border: 1px solid rgb(22, 21, 21);
 }
 
-.mini-grid{
-  margin-left:50px;
-  width:80px;
+.mini-grid {
+  margin-left: 50px;
+  width: 80px;
   height: 80px;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   background-color: yellow;
   border: 1px solid;
   box-shadow: 5px 5px;
 }
-.mini-grid div{
+.mini-grid div {
   height: 20px;
   width: 20px;
-  
 }
