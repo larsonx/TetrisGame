@@ -24,7 +24,8 @@ background-color: rgb(169, 191, 209);
 }
 .tetromino {
   background-color: blue;
-  
+  box-sizing: border-box;
+  border: 1px solid rgb(22, 21, 21);
 }
 
 .mini-grid{
