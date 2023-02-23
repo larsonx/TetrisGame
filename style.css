@@ -18,6 +18,8 @@ body {
   background-color: yellow;
   border: 1px solid;
   box-shadow: 5px 5px;
+  transform: scale(1.2);
+     
 }
 .grid div {
   height: 20px;
@@ -38,6 +40,7 @@ body {
   background-color: yellow;
   border: 1px solid;
   box-shadow: 5px 5px;
+  transform: scale(1.2);
 }
 .mini-grid div {
   height: 20px;
