@@ -118,9 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
       nextRandom = Math.floor(Math.random() * theTetrominoes.length);
       current = theTetrominoes[random][currentRotation];
       currentPosition = 4;
+      addScore();
       draw();
       displayShape();
-      addScore();
       gameOver();
     }
   }
