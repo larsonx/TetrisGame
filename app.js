@@ -79,18 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //Keycode functies
-  function control(e) {
-    if (e.keyCode === 37) {
-      moveLeft();
-    } else if (e.keyCode === 38) {
-      rotate();
+  function controlKeyDown(e) {
+    if(e.keyCode === 37) {
+        moveLeft();
     } else if (e.keyCode === 39) {
-      moveRight();
-    } else if (e.keyCode === 40) {
-      moveDown();
+        moveRight();
+    } else if (e.keyCode == 40) {
+        moveDown();
     }
-  }
-  document.addEventListener("keyup", control);
+}
+
+function controlKeyUp(e) {
+    if (e.keyCode === 38) {
+        rotate();
+    }
+}
+
+document.addEventListener('keydown', controlKeyDown);
+document.addEventListener('keyup', controlKeyUp);
   
   //move down function
   function moveDown() {
