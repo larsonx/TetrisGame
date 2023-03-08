@@ -94,10 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
   //move down function
   function moveDown() {
-    undraw();
-    currentPosition += width;
-    draw();
-    freeze();
+    if(!current.some(index =>squares[currentPosition + index +width].classList.contains('taken'))){
+    undraw()
+    currentPosition += width
+    draw()
+    }else{
+      freeze()
+    }
   }
 
   //freeze function
@@ -275,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[currentPosition + index].classList.contains("taken")
       )
     ) {
-      scoreDisplay.innerHTML = "end";
+      scoreDisplay.innerHTML = score;
       clearInterval(timerId);
     }
   }
