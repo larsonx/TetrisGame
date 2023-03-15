@@ -46,7 +46,7 @@ body {
   width: 20px;
 }
 #game-over{
-  background-color: green;
+  margin-top: 10px;
   width: 50px;
   height: 20px;
 }
