@@ -287,7 +287,6 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[currentPosition + index].classList.contains("taken")
       )
     ) {
-      location.reload();
       let OverBtn = document.querySelector("#game-over");
       OverBtn.style.display = "block";
       document.removeEventListener("keydown", controlKeyDown);
