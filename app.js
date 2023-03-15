@@ -282,8 +282,11 @@ document.addEventListener('keyup', controlKeyUp);
     if (
       current.some((index) =>
         squares[currentPosition + index].classList.contains("taken")
+        
       )
     ) {
+      document.removeEventListener('keydown', controlKeyDown);
+      document.removeEventListener('keyup', controlKeyUp);
       scoreDisplay.innerHTML = score;
       clearInterval(timerId);
     }
