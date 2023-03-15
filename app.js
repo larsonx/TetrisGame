@@ -285,6 +285,7 @@ document.addEventListener('keyup', controlKeyUp);
         
       )
     ) {
+      
       let OverBtn = document.querySelector("#game-over");
       OverBtn.style.display = "block";
       document.removeEventListener('keydown', controlKeyDown);
