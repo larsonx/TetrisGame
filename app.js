@@ -289,6 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       let OverBtn = document.querySelector("#game-over");
       OverBtn.style.display = "block";
+      OverBtn.addEventListener(location.reload())
       document.removeEventListener("keydown", controlKeyDown);
       document.removeEventListener("keyup", controlKeyUp);
       scoreDisplay.innerHTML = score;
