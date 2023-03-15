@@ -299,3 +299,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+//iets met if game over removeclasslists ( om te testen binnen de gameOver functie).
