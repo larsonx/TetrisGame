@@ -279,14 +279,14 @@ document.addEventListener('keyup', controlKeyUp);
 
   //game over
   function gameOver() {
-    let OverBtn = document.querySelector("#game-over");
     if (
       current.some((index) =>
         squares[currentPosition + index].classList.contains("taken")
         
       )
     ) {
-      
+      let OverBtn = document.querySelector("#game-over");
+    OverBtn.style.display = "block";
       document.removeEventListener('keydown', controlKeyDown);
       document.removeEventListener('keyup', controlKeyUp);
       scoreDisplay.innerHTML = score;
