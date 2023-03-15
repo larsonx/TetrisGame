@@ -80,32 +80,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Keycode functies
   function controlKeyDown(e) {
-    if(e.keyCode === 37) {
-        moveLeft();
+    if (e.keyCode === 37) {
+      moveLeft();
     } else if (e.keyCode === 39) {
-        moveRight();
+      moveRight();
     } else if (e.keyCode == 40) {
-        moveDown();
+      moveDown();
     }
-}
+  }
 
-function controlKeyUp(e) {
+  function controlKeyUp(e) {
     if (e.keyCode === 38) {
-        rotate();
+      rotate();
     }
-}
+  }
 
-document.addEventListener('keydown', controlKeyDown);
-document.addEventListener('keyup', controlKeyUp);
-  
   //move down function
   function moveDown() {
-    if(!current.some(index =>squares[currentPosition + index +width].classList.contains('taken'))){
-    undraw()
-    currentPosition += width
-    draw()
-    }else{
-      freeze()
+    if (
+      !current.some((index) =>
+        squares[currentPosition + index + width].classList.contains("taken")
+      )
+    ) {
+      undraw();
+      currentPosition += width;
+      draw();
+    } else {
+      freeze();
     }
   }
 
@@ -235,6 +236,8 @@ document.addEventListener('keyup', controlKeyUp);
 
   //add functionality to the button
   startBtn.addEventListener("click", () => {
+    document.addEventListener("keydown", controlKeyDown);
+    document.addEventListener("keyup", controlKeyUp);
     if (timerId) {
       clearInterval(timerId);
       timerId = null;
@@ -282,14 +285,13 @@ document.addEventListener('keyup', controlKeyUp);
     if (
       current.some((index) =>
         squares[currentPosition + index].classList.contains("taken")
-        
       )
     ) {
-      
+      location.reload();
       let OverBtn = document.querySelector("#game-over");
       OverBtn.style.display = "block";
-      document.removeEventListener('keydown', controlKeyDown);
-      document.removeEventListener('keyup', controlKeyUp);
+      document.removeEventListener("keydown", controlKeyDown);
+      document.removeEventListener("keyup", controlKeyUp);
       scoreDisplay.innerHTML = score;
       clearInterval(timerId);
     }
