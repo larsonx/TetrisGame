@@ -193,18 +193,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //rotate the tetromino
   function rotate() {
     undraw();
     currentRotation++;
     if (currentRotation === current.length) {
-      //if the current rotation gets to 4, make it go back to 0
-      currentRotation = 0;
+    currentRotation = 0;
     }
     current = theTetrominoes[random][currentRotation];
     checkRotatedPosition();
+    
+    // check for block collision
+    for (let i = 0; i < current.length; i++) {
+    if ((currentPosition + current[i]) % width < 0 ||
+    (currentPosition + current[i]) % width >= width ||
+    squares[currentPosition + current[i]].classList.contains('taken')) {
+    // if the rotated tetromino overlaps with a taken square, rotate it back
+    currentRotation--;
+    if (currentRotation < 0) {
+    currentRotation = current.length - 1;
+    }
+    current = theTetrominoes[random][currentRotation];
+    checkRotatedPosition();
+    break;
+    }
+    }
+    
     draw();
-  }
+    }
+  
   /////////
 
   //show up-next tetromino in mini-grid display
