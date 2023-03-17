@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       let OverBtn = document.querySelector("#game-over");
       OverBtn.style.display = "block";
-      startBtn.addEventListener("click", () => {
+      OverBtn.addEventListener("click", () => {
         location.reload();
       });
       document.removeEventListener("keydown", controlKeyDown);
