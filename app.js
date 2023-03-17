@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let nextRandom = 0;
   let timerId;
   let score = 0;
+  let numClears = 0;
   const colors = ["orange", "red", "purple", "green", "blue"];
 
   //The Tetrominoes
@@ -276,6 +277,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const squaresRemoved = squares.splice(i, width);
         squares = squaresRemoved.concat(squares);
         squares.forEach((cell) => grid.appendChild(cell));
+        numClears++;
+        
+        if (numClears % 5 === 0) {
+          clearInterval(timerId);
+          timerId = setInterval(moveDown, 1000 - (numClears / 5) * 125);
+        }
       }
     }
   }
