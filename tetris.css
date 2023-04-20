@@ -1,12 +1,10 @@
-body {
-  background-color: rgb(169, 191, 209);
-}
-.container {
+
+.container-t {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.grid {
+.gridt {
   align-items: center;
   justify-content: center;
   margin-left: 80px;
@@ -21,7 +19,7 @@ body {
   transform: scale(1.2);
      
 }
-.grid div {
+.gridt div {
   height: 20px;
   width: 20px;
 }
